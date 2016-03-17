@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Mailing list signup</title>
+  <link rel="stylesheet" type="text/css" href="static/semantic/dist/semantic.min.css">
+  <style>
+  .last.container {
+    margin-bottom: 300px !important;
+    }
+    h1.ui.center.header {
+      margin-top: 3em;
+    }
+    h2.ui.center.header {
+      margin: 4em 0em 2em;
+    }
+    h3.ui.center.header {
+      margin-top: 2em;
+      padding: 2em 0em;
+    }
+  </style>
+</head>
+<body>
+<h1 class="ui center aligned header">Mailing list signup</h1>
+<div class="ui text container">
+  <div class="ui segments">
+  {% if email is not none %}
+    {% if error %}
+    <div class="ui tertiary inverted red segment">
+      <h2 class="ui header">Error</h2>
+      <p>{{ error_detail }}</p>
+    </div>
+    {% else %}
+    <div class="ui center aligned segment">Thanks for signing up, your email <b>{{ email }}</b> has been added to our list.</div>
+    {% endif %}
+  {% else %}
+    <form class="ui form segment" action="{{ mailchimp_url }}" method="post" name="mc-embedded-subscribe-form">
+      <div class="field">
+        <label for="mce-EMAIL">Email</label>
+        <input name="EMAIL" type="email" value="" class="required email" id="mce-EMAIL" placeholder="Required">
+      </div>
+        <div class="two fields">
+        <div class="field">
+          <label for="mce-FNAME">First Name</label>
+          <input name="FNAME" type="text" value="" class="" id="mce-FNAME">
+        </div>
+        <div class="field">
+          <label for="mce-LNAME">Last name</label>
+          <input name="LNAME" type="text" value="" class="" id="mce-LNAME">
+        </div>
+      </div>
+      <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="ui blue submit button">
+    </form>
+  {% endif %}
+  </div>
+</div>
+</body>

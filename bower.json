@@ -1,0 +1,9 @@
+{
+  "name": "mailchimp-flask",
+  "authors": [
+    "sasha42 <sasha42@users.noreply.github.com>"
+  ],
+  "dependencies": {
+    "semantic": "^2.1.8"
+  }
+}

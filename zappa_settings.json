@@ -1,0 +1,7 @@
+{
+    "production": {
+       "s3_bucket": "your-bucket",
+       "settings_file": "settings.py",
+       "project_name": "MailchimpUtility"
+    }
+}
